@@ -17,6 +17,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="basicscripts.js"></script>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <h1 class="navbar-brand">Usuarios</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -46,55 +49,6 @@
         </div>
       </nav>
 </head>
-
-<script>
-$(document).ready(function(){
-  $("input[type='checkbox']").change(function(e) {
-    if($(this).is(":checked")){ 
-      $(this).closest('tr').addClass("highlight");
-    }else{
-      $(this).closest('tr').removeClass("highlight");
-    }
-  });
-});
-
-// Funcion "Seleccionados" de prueba
-
-function myFunction() {
-  var checkBox = document.getElementById("myCheck");
-  var text = document.getElementById("text");
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-     text.style.display = "none";
-  }
-}
-
-//Fin funcion "Seleccionados" de prueba
-</script>
-
-<!-- Mover a hoja de estilos-->
-<style> 
-.highlight td {background: #d6d6d6;} 
-
-    table.table-hover tbody tr:hover {
-        background-color: #d6d6d6;
-    }
-
-    td a {
-        display: block;
-        width: 100%;
-    }
-
-    .btn-group {
-        visibility: hidden;
-    }
-
-    table tr:hover .btn-group {
-        visibility: visible;
-    }
-</style>
-
 <body>
     <div class="container-fluid">
 <div class="container">

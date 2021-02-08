@@ -1,0 +1,18 @@
+.highlight td {background: #d6d6d6;} 
+
+    table.table-hover tbody tr:hover {
+        background-color: #d6d6d6;
+    }
+
+    td a {
+        display: block;
+        width: 100%;
+    }
+
+    .btn-group {
+        visibility: hidden;
+    }
+
+    table tr:hover .btn-group {
+        visibility: visible;
+    }
