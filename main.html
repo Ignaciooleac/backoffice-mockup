@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand">Usuarios</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Agregar un nuevo Usuario <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Actualizar Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Descargar Usuario</a>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="btn bg-transparent dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Mas
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Borrar Usuario</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+</head>
+
+<script>
+$(document).ready(function(){
+  $("input[type='checkbox']").change(function(e) {
+    if($(this).is(":checked")){ 
+      $(this).closest('tr').addClass("highlight");
+    }else{
+      $(this).closest('tr').removeClass("highlight");
+    }
+  });
+});
+
+// Funcion "Seleccionados" de prueba
+
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+
+//Fin funcion "Seleccionados" de prueba
+</script>
+
+<!-- Mover a hoja de estilos-->
+<style> 
+.highlight td {background: #d6d6d6;} 
+
+    table.table-hover tbody tr:hover {
+        background-color: #d6d6d6;
+    }
+
+    td a {
+        display: block;
+        width: 100%;
+    }
+
+    .btn-group {
+        visibility: hidden;
+    }
+
+    table tr:hover .btn-group {
+        visibility: visible;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+<div class="container">
+    <div class="alert alert-info alert-dismissible" id="text" style="display:none">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>1 Usuario Seleccionado</strong>
+      </div>
+</div>
+<div class="container">
+    <div class="alert alert-info alert-dismissible" id="text2" style="display:none">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>2 Usuarios Seleccionados</strong>
+      </div>
+</div>
+        <!-- Comienzo Tabla-->
+    <div class="table-responsive-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo Electronico</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Ultimo Acceso</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="myCheck" onclick="myFunction()">
+                    </div>
+                </td>
+                <td><a href="" data-toggle="modal" data-target="#exampleModalCenter">Ignacio Olea</a></td>
+                <td>Ignacio.olea.c@gmail.com</td>
+                <td>Activo</td>
+                <td>Hace 5 minutos</td>
+                <td class="btn-group pull-right" role="group">
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-mini dropdown-toggle"
+                            style="padding: 0%;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mas
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+                            <a class="dropdown-item" href="#" >Enviar un correo</a>
+                            <a class="dropdown-item" href="#">Reestablecer Contraseña</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Suspender Usuario</a>
+                            <a class="dropdown-item" href="#">Borrar Usuario</a>
+                        </div>
+                    </div>
+                </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="myCheck2" onclick="myFunction2()">
+                            </div>
+                        </td>
+                        <td><a href="" data-toggle="modal" data-target="#exampleModalCenter">Nombre Generico 1</a></td>
+                        <td>email@generico.com</td>
+                        <td>Activo</td>
+                        <td>Hace X minutos</td>
+                        <td class="btn-group pull-right" role="group">
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-mini dropdown-toggle"
+                                    style="padding: 0%;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Mas
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="#" >Enviar un correo</a>
+                                    <a class="dropdown-item" href="#">Reestablecer Contraseña</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Suspender Usuario</a>
+                                    <a class="dropdown-item" href="#">Borrar Usuario</a>
+                                </div>
+                            </div>
+                    </tr>
+            </tbody>
+        </table>
+        </div>
+        <!-- Fin Tabla-->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Editar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="inline-block">
+                        <div class="form-group">
+                            <label for="examplenombre">Nombre</label>
+                            <input type="name" class="form-control" id="examplenombre" aria-describedby="emailHelp"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleapellido">Apellido</label>
+                            <input type="name" class="form-control" id="exampleapellido" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="examplecorreo">Direccion de Correo</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Direccion de Correo"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                    id="examplecorreo">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@lastseal.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
