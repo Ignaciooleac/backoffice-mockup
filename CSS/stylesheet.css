@@ -1,4 +1,4 @@
-.highlight td {background: #d6d6d6;} 
+    .highlight td {background: #d6d6d6;} 
 
     table.table-hover tbody tr:hover {
         background-color: #d6d6d6;
@@ -16,3 +16,15 @@
     table tr:hover .btn-group {
         visibility: visible;
     }
+
+    body{
+  padding:100px 0;
+  background-color:#efefef
+}
+a, a:hover{
+  color:#333
+}
+
+textsame {
+    height: 38px;
+}

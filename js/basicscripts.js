@@ -19,3 +19,15 @@ $(document).ready(function(){
        text.style.display = "none";
     }
   }
+  
+  function showPassword() {
+    var x = document.getElementById("contrasena");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+  
+
+  
