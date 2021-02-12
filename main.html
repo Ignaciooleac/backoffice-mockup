@@ -25,36 +25,33 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <script src="js/basicscripts.js"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <h1 class="navbar-brand">Usuarios</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Agregar un nuevo Usuario <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Actualizar Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Descargar Usuario</a>
-                </li>
-                <li class="nav-item">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-mini dropdown-toggle" style="padding: 0%;"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mas
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                        <a class="dropdown-item" href="#">Borrar Usuarios</a>
-                        <a class="dropdown-item" href="#">Suspender Usuarios</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Borrar Usuario</a>
-                </li>
-            </ul>
-        </div>
+    <nav class="navbar navbar-light bg-light">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <p class="nav-link"><strong>Usuarios</strong></p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalNuevoUsuario">Agregar Nuevo
+                    Usuario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Actualizar Usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Descargar Usuarios</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">Más</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalSuspender">Suspender
+                        Usuarios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalBorrar">Borrar Usuarios</a>
+                </div>
+            </li>
+        </ul>
+
     </nav>
 </head>
 
@@ -110,10 +107,13 @@
                                     <a class="dropdown-item" href="#" data-toggle="modal"
                                         data-target="#modalContrasena">Reestablecer Contraseña</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Suspender Usuario</a>
-                                    <a class="dropdown-item" href="#">Borrar Usuario</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                        data-target="#modalSuspender">Suspender Usuario</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                        data-target="#modalBorrar">Borrar Usuario</a>
                                 </div>
                             </div>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -137,8 +137,10 @@
                                     <a class="dropdown-item" href="#">Enviar un correo</a>
                                     <a class="dropdown-item" href="#">Reestablecer Contraseña</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Suspender Usuario</a>
-                                    <a class="dropdown-item" href="#">Borrar Usuario</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                        data-target="#modalSuspender">Suspender Usuario</a>
+                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                        data-target="#modalBorrar">Borrar Usuario</a>
                                 </div>
                             </div>
                     </tr>
@@ -146,8 +148,8 @@
             </table>
         </div>
         <!-- Fin Tabla-->
-
     </div>
+    <!-- MODALES -->
     <!-- Modal Nombre -->
     <div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -190,7 +192,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal Contraseña-->
     <div class="modal fade" id="modalContrasena" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
@@ -211,15 +212,22 @@
                                 <input type="password" class="form-control" placeholder="Nueva Contraseña"
                                     aria-label="Recipient's username" aria-describedby="basic-addon2" id="contrasena">
                                 <div class="input-group-append btn-group-toggle" data-toggle="buttons">
-                                    <button class="btn btn-outline-secondary" type="button" checked autocomplete="off" onclick="showPassword()"><i
-                                            class="fas fa-eye"></i></button>
+                                    <button class="btn btn-outline-secondary" type="button" checked autocomplete="off"
+                                        onclick="showPassword()"><i class="fas fa-eye"></i></button>
                                 </div>
+
+                            </div>
+                            <label for="examplecontrasena">Confirmar Contraseña</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder=""
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2" id="contrasena">
                             </div>
                         </div>
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1"><small >Solicitar cambio de contraseña durante el siguente acceso</small></label>
-                          </div>
+                            <label class="custom-control-label" for="customSwitch1"><small>Solicitar cambio de
+                                    contraseña durante el siguente acceso</small></label>
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -228,9 +236,124 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Borrar -->
-
-        <!-- Modal Suspender-->
+    </div>
+    <!-- Modal Borrar -->
+    <div class="modal fade" id="modalBorrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Borrar Usuarios</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Se removeran los siguentes usuarios:</strong></p>
+                    <ul>
+                        <li>$usuario</li>
+                    </ul>
+                    <p><strong>Esta acción no puede deshacerse.</strong></p>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2"><small>Estoy Seguro</small></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary disabled">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Suspender-->
+    <div class="modal fade" id="modalSuspender" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Suspender Usuarios</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Se suspenderán los siguentes usuarios:</strong></p>
+                    <ul>
+                        <li>$usuario</li>
+                    </ul>
+                    <p><strong>Usuarios suspendidos no pueden ingresar al sistema.</strong></p>
+                    <p><small>Puede volver a activar un usuario</small></p>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2"><small>Estoy Seguro</small></label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary disabled">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Nuevo Usuario-->
+    <div class="modal fade" id="modalNuevoUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Crear Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="inline-block">
+                        <div class="form-group">
+                            <label for="examplenombre">Nombre</label>
+                            <input type="name" class="form-control" id="examplenombre" aria-describedby="emailHelp"
+                                placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleapellido">Apellido</label>
+                            <input type="name" class="form-control" id="exampleapellido" placeholder="Apellido">
+                        </div>
+                        <div class="form-group">
+                            <label for="examplecorreo">Direccion de Correo</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Direccion de Correo"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                    id="examplecorreo">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="basic-addon2">@lastseal.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="examplecontrasena">Contraseña</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Nueva Contraseña"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2" id="contrasena">
+                                <div class="input-group-append btn-group-toggle" data-toggle="buttons">
+                                    <button class="btn btn-outline-secondary" type="button" checked autocomplete="off"
+                                        onclick="showPassword()"><i class="fas fa-eye"></i></button>
+                                </div>
+                            </div>
+                            <label for="examplecontrasena">Confirmar Contraseña</label>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder=""
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2" id="contrasena">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
